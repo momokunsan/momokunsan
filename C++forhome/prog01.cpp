@@ -14,7 +14,6 @@ int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 	array = (double *)malloc(n * sizeof(double));  /*配列のメモリ確保*/
 
 	/*実数乱数を作るコードを書く*/
-	//start = clock();               /*実行時間計測開始*/
 	srand((unsigned) time(NULL)); //時刻をもとに乱数を生成
 
 	for (int i = 0; i < n; i++) { //小数点を含む乱数にする
@@ -39,11 +38,11 @@ int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 double maximum(double *array, int n) {
 	double y = array[0]; //最大値の初期化
 
-	for (int i = 1; i < n; i++) {
-		if (y < array[i]) {
+	for (int i = 1; i < n; i++) { 
+		if (y < array[i]) { //一個前の配列の値と比べて大きければ代入
 			y = array[i];
 		}
 	}
 
-	return y;
+	return y; //最大値を返す
 }
