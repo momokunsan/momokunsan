@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 
-double maximum(double *, int);
+double QuickMaximum(double *, int);
 
 int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 	int n;
@@ -15,13 +15,13 @@ int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 												   /*実数乱数を作るコードを書く*/
 	srand((unsigned)time(NULL)); //時刻をもとに乱数を生成
 
-	for (int i = 0; i < n; i++) { //小数点を含む乱数にする
-								  //	printf("%f ",(double)rand()/100);
-		array[i] = (double)rand() / 100; //配列に代入
+	for (int i = 0; i < n; i++) {
+		//	printf("%f ",(double)rand()/100);
+		array[i] = (double)rand() / 100; //小数点を含む乱数にする
 	}
 
 	start = clock();               /*実行時間計測開始*/
-	max = maximum(array, n);        /*最大値を求める関数呼び出し*/
+	max = QuickMaximum(array, n);        /*最大値を求める関数呼び出し*/
 	end = clock();                 /*実行時間計測終了*/
 
 	printf("\n");
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 }
 
 /*最大値を求めるコードを書く*/
-double maximum(double *array, int n) {
+double QuickMaximum(double *array, int n) {
 	double y = array[0]; //最大値の初期化
 
 	for (int i = 1; i < n; i++) {
@@ -45,3 +45,4 @@ double maximum(double *array, int n) {
 
 	return y; //最大値を返す
 }
+
