@@ -2,7 +2,9 @@
 #include<stdlib.h>
 #include<time.h>
 
-double QuickMaximum(double *, int);
+double QuickMaximum(double *, int, int, int);
+void swap(double *, double *);
+
 
 int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 	int n;
@@ -21,7 +23,7 @@ int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 	}
 
 	start = clock();               /*実行時間計測開始*/
-	max = QuickMaximum(array, n);        /*最大値を求める関数呼び出し*/
+	max = QuickMaximum(array, n, 0, n);        /*最大値を求める関数呼び出し*/
 	end = clock();                 /*実行時間計測終了*/
 
 	printf("\n");
@@ -34,15 +36,29 @@ int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 }
 
 /*最大値を求めるコードを書く*/
-double QuickMaximum(double *array, int n) {
-	double y = array[0]; //最大値の初期化
+double QuickMaximum(double *array, int n, int L, int R) {
+	int l = L;
+	int r = R;
+	double pivot = array[(L + R) / 2];
 
-	for (int i = 1; i < n; i++) {
-		if (y < array[i]) { //一個前の配列の値と比べて大きければ代入
-			y = array[i];
-		}
+
+	while (1) {
+		if (l > r) break; //step2
+		while (array[l] < pivot) l++; //step3
+		while (array[r] > pivot) r--; //step4
+		if (l > r) break; //step5
+		if (l < r) swap(&array[l], &array[r]); //step6
+		l++; r--; //step7
 	}
 
-	return y; //最大値を返す
+	if (L < r) QuickMaximum(array, n, L, r); //step8
+	if (l < R) QuickMaximum(array, n, l, R); //step9
+
+	return array[n];
 }
 
+void swap(double* x, double* y) { //要素の入れ替え
+	double z = *x;
+	*x = *y;
+	*y = z;
+}

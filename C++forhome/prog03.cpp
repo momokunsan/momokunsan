@@ -1,10 +1,9 @@
 
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
 
-double maximum(double *, int);
+double BubbleMaximum(double *, int);
 
 int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 	int n;
@@ -23,7 +22,7 @@ int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 	}
 
 	start = clock();               /*実行時間計測開始*/
-	max = maximum(array, n);        /*最大値を求める関数呼び出し*/
+	max = BubbleMaximum(array, n);        /*最大値を求める関数呼び出し*/
 	end = clock();                 /*実行時間計測終了*/
 
 	printf("\n");
@@ -36,14 +35,15 @@ int main(int argc, char *argv[]) {    /*コマンドライン引数を受け取る*/
 }
 
 /*最大値を求めるコードを書く*/
-double maximum(double *array, int n) {
-	double y = array[0]; //最大値の初期化
-
-	for (int i = 1; i < n; i++) {
-		if (y < array[i]) { //一個前の配列の値と比べて大きければ代入
-			y = array[i];
+double BubbleMaximum(double *array, int n) {
+		for (int i = n; i >= 2; i--) { //nから2まで1ずつ減らす
+			for (int j = 0; j <= i - 2; j++) { //0からi-2まで１ずつ増やす
+				if (array[j] > array[j + 1]) { //前の値と入れ替える
+					double z = array[j];
+					array[j] = array[j + 1];
+					array[j + 1] = z;
+				}
+			}
 		}
-	}
-
-	return y; //最大値を返す
+	return array[n-1]; //最大値を返す
 }
