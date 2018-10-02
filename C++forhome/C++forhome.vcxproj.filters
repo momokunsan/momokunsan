@@ -13,16 +13,22 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\prog">
+      <UniqueIdentifier>{e9c3245f-8fad-4b18-a686-70a9c9e45aaf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="prog03.cpp">
+    <ClCompile Include="jishu01.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="prog01.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\prog</Filter>
     </ClCompile>
     <ClCompile Include="prog02.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\prog</Filter>
+    </ClCompile>
+    <ClCompile Include="prog03.cpp">
+      <Filter>ソース ファイル\prog</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
