@@ -16,11 +16,11 @@
     <Filter Include="ソース ファイル\prog">
       <UniqueIdentifier>{e9c3245f-8fad-4b18-a686-70a9c9e45aaf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\study">
+      <UniqueIdentifier>{0e61f5c2-0274-4655-ad89-64d11baa6fb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="jishu01.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="prog01.cpp">
       <Filter>ソース ファイル\prog</Filter>
     </ClCompile>
@@ -29,6 +29,21 @@
     </ClCompile>
     <ClCompile Include="prog03.cpp">
       <Filter>ソース ファイル\prog</Filter>
+    </ClCompile>
+    <ClCompile Include="jishu01.cpp">
+      <Filter>ソース ファイル\study</Filter>
+    </ClCompile>
+    <ClCompile Include="..\string03.cpp">
+      <Filter>ソース ファイル\study</Filter>
+    </ClCompile>
+    <ClCompile Include="..\string01.cpp">
+      <Filter>ソース ファイル\study</Filter>
+    </ClCompile>
+    <ClCompile Include="..\string02.cpp">
+      <Filter>ソース ファイル\study</Filter>
+    </ClCompile>
+    <ClCompile Include="..\report2.c">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

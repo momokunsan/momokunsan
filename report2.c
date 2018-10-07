@@ -10,7 +10,7 @@ typedef struct tagNode {
 
 // メイン関数
 int main (void) {
-  int buf;
+  int buf, cnt;
   Node *firstNode, *lastNode, *newNode;
   firstNode = lastNode = NULL;
   do {
@@ -35,6 +35,25 @@ int main (void) {
       }
     }
   } while (buf != 0);
+
+  //ノードの削除
+  do {
+	  printf("削除する値を入力してください（0を入力すると終了）:");
+	  scanf("%d", &buf); //入力された整数値の読み込み
+
+	  // データが存在する場合
+	  if (newNode->data == buf) {
+
+	  }
+	  // データが存在しない場合
+	  else {
+		  printf("%dは存在しません\n", buf);
+	  }
+
+
+
+  } while (buf != 0);
+
 
   // 入力された数の出力
   printf ("--入力されたのは以下の数です--\n");
