@@ -50,7 +50,9 @@ int main(void) {
 			Node *deleteNode;
 			for (deleteNode = firstNode; deleteNode != NULL; deleteNode = deleteNode->next) {
 				// データが存在する場合
+				
 				if (deleteNode->data == buf) {
+					if (x == TRUE) break;
 					printf("入力された値の中に%dが見つかりました。ノードを削除します。\n", buf);
 					/*ここにノード削除の処理を書く*/
 					//削除するノードが最初のノードの場合
@@ -81,8 +83,9 @@ int main(void) {
 	for (thisNode = firstNode; thisNode != NULL; thisNode = thisNode->next) {
 		printf("%d ", thisNode->data);
 	}
-
+	int ax;
 	printf("\n");
+	scanf("%d", &ax);
 
 	// リストの全ノード（セル）を削除
 	// Cの場合これを行わないとメモリリークとなる．
