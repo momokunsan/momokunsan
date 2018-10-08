@@ -1,5 +1,7 @@
+#pragma warning(disable: 4996)
 #include <stdio.h>
 #include <stdlib.h>
+
 
 // ２重線形リストのノード（セル）の構造体
 typedef struct tagNode {
@@ -10,12 +12,12 @@ typedef struct tagNode {
 
 // メイン関数
 int main (void) {
-  int buf, cnt;
+  int buf;
   Node *firstNode, *lastNode, *newNode;
   firstNode = lastNode = NULL;
   do {
     printf("整数値を入力してください（0を入力すると終了）:");
-    scanf ("%d", &buf); //入力された整数値の読み込み
+    scanf("%d", &buf); //入力された整数値の読み込み
     if (buf) {
       // 新しいノード（セル）の作成．メモリ確保．
       newNode = (Node*)malloc(sizeof(Node));
@@ -42,8 +44,9 @@ int main (void) {
 	  scanf("%d", &buf); //入力された整数値の読み込み
 
 	  // データが存在する場合
-	  if (newNode->data == buf) {
-
+	  if (lastNode->data == buf) {
+		  lastNode->prev = lastNode->next;
+		  lastNode->data = NULL;
 	  }
 	  // データが存在しない場合
 	  else {
@@ -60,6 +63,8 @@ int main (void) {
   Node* thisNode;
   for (thisNode = firstNode; thisNode != NULL; thisNode = thisNode->next) {
     printf ("%d ", thisNode->data);
+	int a;
+	scanf("%d", &a);
   }
 
   printf ("\n");
