@@ -1,3 +1,4 @@
+//HeapSort
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -8,8 +9,42 @@
 
 int sort[N];
 
-void xxxSort() {
-	// ソートの処理を追加する
+void swap(int* x, int* y) { //要素の入れ替え
+	int z = *x;
+	*x = *y;
+	*y = z;
+}
+// Heap構造を作る関数
+void HeapSortBase(int *array, int n, int i) {
+	int maximum = i; //最大値の初期化
+	int l = 2 * i + 1; //左の子ノード
+	int r = 2 * i + 2; //右の子ノード
+	//左の子ノードが根ノードより大きい時
+	if (l < n && array[l] > array[maximum]) {
+		maximum = l;
+	}
+	//右の子ノードが親ノードより大きい時
+	if (r < n && array[r] > array[maximum]) {
+		maximum = r;
+	}
+	//最大値が根ノードでない時
+	if (maximum != i) {
+		swap(&array[i], &array[maximum]);
+		HeapSortBase(array, n, maximum);
+	}
+}
+//　ソートをこっちの関数で行う
+void HeapSort(int *array, int n) {
+	// Heap構造の生成
+	for (int i = (n / 2) - 1; i >= 0; i--) {
+		HeapSortBase(array, n, i);
+	}
+	// ソートの処理
+	for (int i = n - 1; i >= 0; i--) {
+		swap(&array[0], &array[i]);
+
+		HeapSortBase(array, i, 0);
+	}
 }
 
 int main(void) {
@@ -36,7 +71,7 @@ int main(void) {
 	start = clock();
 	printf("Sort start...");
 	// ソートを行う関数の呼び出し
-	xxxSort();
+	HeapSort(sort, N);
 	printf("Sort end.\n");
 	end = clock();
 
@@ -56,6 +91,11 @@ int main(void) {
 			}
 		}
 	}
+	int a;
+	scanf_s("%d", &a);
 	return EXIT_SUCCESS;
 }
 
+//参考文献
+//URL：https://www.geeksforgeeks.org/heap-sort/
+//閲覧日：2018/10/15
