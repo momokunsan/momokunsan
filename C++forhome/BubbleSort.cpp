@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 1000
+#define N 100000
 #define PRINT 1 // N‚ª‘å‚«‚È’l‚ÌŽž‚Í0‚É‚·‚é
 #define CHECK 1
 
@@ -35,13 +35,14 @@ int main(void) {
 		sort[i] = sort[j];
 		sort[j] = t;
 	}
+	/*
 	if (PRINT) {
 		for (i = 0; i<N; i++) {
 			printf("%d ", sort[i]);
 		}
 		printf("\n");
 	}
-
+	*/
 	clock_t start, end;
 	start = clock();
 	printf("Sort start...");
@@ -49,13 +50,14 @@ int main(void) {
 	BubbleSort(sort, N);
 	printf("Sort end.\n");
 	end = clock();
-
+	/*
 	if (PRINT) {
 		for (i = 0; i<N; i++) {
 			printf("%d ", sort[i]);
 		}
 		printf("\n");
 	}
+	*/
 	printf("Elapsed time: %.2f milisec.\n",
 		(end - start) * 1000 / (double)CLOCKS_PER_SEC);
 
@@ -66,8 +68,7 @@ int main(void) {
 			}
 		}
 	}
-	int a;
-	scanf_s("%d", &a);
+
 	return EXIT_SUCCESS;
 }
 
