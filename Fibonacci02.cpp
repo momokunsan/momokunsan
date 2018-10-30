@@ -6,12 +6,19 @@ int n = 100;
 
 
 
-float Fibonacci01(int n) {
+float Fibonacci02(int n) {
 	if (n == 0 || n == 1) {
 		return 1.0;
 	}
 	else {
-		return Fibonacci01(n-1) + Fibonacci01(n-2);
+		float x = 1.0, y = 1.0;
+		float z = 1.0;
+		for (int i = 1; i < n; i++) {
+			z = x + y;
+			x = y;
+			y = z;
+		}
+		return z;
 	}
 }
 
@@ -20,13 +27,10 @@ int main(void) {
 	printf("Start computing...\n");
 	start = clock();
 
-	// ソートを行う関数の呼び出し
+	// フィボナッチ数列を計算する関数の呼び出し
 	for (int i = 0; i < n; i++) {
-		printf("%.1f ,", Fibonacci01(i));
-
+		printf("%.1f ,", Fibonacci02(i));
 	}
-	
-
 	end = clock();
 	printf("\n");
 	printf("End computing.\n");
